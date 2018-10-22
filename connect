@@ -1,0 +1,11 @@
+#!/bin/ash
+export SQL_ALLOW_EMPTY_PASSWORD=yes
+export MYSQL_USER=${DB_USER}
+export MYSQL_PASSWORD=${DB_PASSWORD}
+export MYSQL_DATABASE=${DB_NAME}
+
+if mysqladmin ping -h ${DB_HOST} ; then
+  echo "The database connection is alive."
+else
+  echo "Failed to establish the connection."
+fi
