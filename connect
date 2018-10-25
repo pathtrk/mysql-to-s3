@@ -5,6 +5,7 @@ chmod 600 .my.cnf
 
 if mysqladmin ping -h ${DB_HOST} -u ${DB_USER}; then
   echo "The database connection is alive."
+  cat .my.cnf
 else
   echo "Failed to establish the connection."
 fi
