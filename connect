@@ -1,11 +1,10 @@
 #!/bin/ash
-export MYSQL_ALLOW_EMPTY_PASSWORD=yes
-echo -e "[mysql]\nuser=${DB_USER}\npassword=${DB_PASSWORD}" > .my.cnf
-chmod 600 .my.cnf
+# export MYSQL_ALLOW_EMPTY_PASSWORD=yes
+# echo -e "[mysql]\nuser=${DB_USER}\npassword=${DB_PASSWORD}" > .my.cnf
+# chmod 600 .my.cnf
 
-if mysqladmin ping -h ${DB_HOST} -u ${DB_USER}; then
+if mysqladmin ping -h ${DB_HOST} -u ${DB_USER} -p${DB_PASSWORD}; then
   echo "The database connection is alive."
-  cat .my.cnf
 else
   echo "Failed to establish the connection."
 fi
