@@ -1,10 +1,9 @@
 #!/bin/ash
 export SQL_ALLOW_EMPTY_PASSWORD=yes
-export MYSQL_USER=${DB_USER}
-export MYSQL_PASSWORD=${DB_PASSWORD}
-export MYSQL_DATABASE=${DB_NAME}
+echo -e "[mysql]\nuser=$DB_USER\npassword=$DB_PASSWORD" > .my.cnf
+chmod 600 .my.cnf
 
-if mysqladmin ping -h ${DB_HOST} ; then
+if mysqladmin ping -h ${DB_HOST} -u ${DB_USER}; then
   echo "The database connection is alive."
 else
   echo "Failed to establish the connection."
