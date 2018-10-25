@@ -20,6 +20,7 @@ RUN curl -o s3cmd.zip -L https://github.com/s3tools/s3cmd/releases/download/v1.6
     && ln -s /usr/local/s3cmd/s3cmd /usr/local/bin/s3cmd
 
 ADD backup /home/rd/
+ADD connect /home/rd/
 RUN chown rd:rd /home/rd/connect && chmod 700 /home/rd/connect
 
 WORKDIR /home/rd
