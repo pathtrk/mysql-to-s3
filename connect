@@ -1,6 +1,6 @@
 #!/bin/ash
 export SQL_ALLOW_EMPTY_PASSWORD=yes
-echo -e "[mysql]\nuser=$DB_USER\npassword=$DB_PASSWORD" > .my.cnf
+echo -e "[mysql]\nuser=${DB_USER}\npassword=${DB_PASSWORD}" > .my.cnf
 chmod 600 .my.cnf
 
 if mysqladmin ping -h ${DB_HOST} -u ${DB_USER}; then
